@@ -2,20 +2,14 @@ public class HelloApp {
     public static void main(String[] args) {
         // Default name
         String name = "World";
-        
+
         // Check if names are provided as command-line arguments
         if (args.length > 0) {
-            StringBuilder nameBuilder = new StringBuilder();
-            
-            // Enhanced for loop appending EVERY name with a comma and space
-            for (String arg : args) {
-                nameBuilder.append(arg).append(", ");
-            }
-            
-            // Use substring to grab everything from index 0 up to (but not including) the last 2 characters
-            name = nameBuilder.substring(0, nameBuilder.length() - 2);
+            // Use String.join to combine all elements in the args array with a comma and space
+            name = String.join(", ", args);
         }
-        
+
+        // Print the final greeting
         System.out.println("Hello, " + name + "!");
     }
 }
